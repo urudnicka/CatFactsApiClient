@@ -7,5 +7,13 @@ namespace CatFactsDI.Models
 {
     public class FactModel
     {
+        public string Fact { get; set; }
+        public int Length { get; set; }
+
+        public string GetFactString()
+        {
+            return $"Fact: {Fact} - length: {Length}";
+        }
     }
+}
 }
