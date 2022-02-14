@@ -33,18 +33,18 @@ namespace CatFacts
 
             while (true)
             {
-                var fact = await FactProcessor.LoadFactAsync();
+                try
+                {
+                    var fact = await FactProcessor.LoadFactAsync();
 
-                string factText = fact.GetFactString();
-                Console.WriteLine(factText);
+                    string factText = fact.GetFactString();
 
-                try 
-                { 
+                    Console.WriteLine(factText);
                     sw.WriteLine(factText);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Fact not added to the file. Reason: " + e.Message);
+                    Console.WriteLine("Sorry, something went wrong. " + e.Message);
                 }
 
                 Console.WriteLine("Do you want to get another cat fact? y/n");
