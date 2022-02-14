@@ -19,7 +19,7 @@ namespace CatFacts
                 }
                 else
                 {
-                    throw new Exception(response.StatusCode + ": " + response.ReasonPhrase); // this or Console.WriteLine
+                    throw new Exception(response.StatusCode + ": " + response.ReasonPhrase);
                 }
             }
         }
