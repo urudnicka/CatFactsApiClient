@@ -1,5 +1,6 @@
 ﻿using CatFacts.Models;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace CatFacts
@@ -21,11 +22,23 @@ namespace CatFacts
         {
             ApiHelper.InitialiseClient();
 
+            Directory.CreateDirectory(@"..\..\..\Data");
+            string filePath = @"..\..\..\Data\facts.txt";
+            StreamWriter sw = null;
+
+            if (!File.Exists(filePath))
+                sw = File.CreateText(filePath);
+            else
+                sw = File.AppendText(filePath);
+
             while (true)
             {
                 var fact = await FactProcessor.LoadFactAsync();
 
-                Console.WriteLine($"Fact: {fact.Fact}; Length: {fact.Length}");
+                string factText = fact.GetFactString();
+
+                Console.WriteLine(factText);
+                sw.WriteLine(factText);  // jesli istnieje -- error handling
 
                 Console.WriteLine("Do you want to get another cat fact? y/n");
 
@@ -35,6 +48,7 @@ namespace CatFacts
                     break;
             }
 
+            sw.Dispose(); // close vs dispose --> close allows to reopen the resource later, dispose is final
         }
 
     }
