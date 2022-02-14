@@ -10,5 +10,10 @@ namespace CatFacts.Models
     {
         public string Fact { get; set; }
         public int Length { get; set; }
+
+        public string getFactString()
+        {
+            return $"Fact: {Fact} - length: {Length}";
+        }
     }
 }
