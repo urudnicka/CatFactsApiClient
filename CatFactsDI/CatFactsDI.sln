@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatFactsDI", "CatFactsDI.csproj", "{F134AA3D-58AC-4944-B29E-9D194651C8FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F134AA3D-58AC-4944-B29E-9D194651C8FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F134AA3D-58AC-4944-B29E-9D194651C8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F134AA3D-58AC-4944-B29E-9D194651C8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F134AA3D-58AC-4944-B29E-9D194651C8FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1996697-7B4C-4472-B272-57F63A5AC447}
+	EndGlobalSection
+EndGlobal
