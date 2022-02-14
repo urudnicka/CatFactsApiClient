@@ -5,11 +5,18 @@ using System.Threading.Tasks;
 
 namespace CatFacts
 {
-    class FactProcessor
-    {
+    class ApiController
+    {   
+        public static HttpClient ApiClient { get; set; }
+
+        public static void InitialiseClient()
+        {
+            ApiClient = new HttpClient();
+            ApiClient.BaseAddress = new Uri("https://catfact.ninja/");
+        }
         public static async Task<FactModel> LoadFactAsync()
         {
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync("fact"))
+            using (HttpResponseMessage response = await ApiClient.GetAsync("fact"))
             {
                 if (response.IsSuccessStatusCode)
                 {

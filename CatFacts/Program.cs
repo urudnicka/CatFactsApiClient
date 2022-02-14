@@ -20,7 +20,7 @@ namespace CatFacts
 
         static async Task RunAsync()
         {
-            ApiHelper.InitialiseClient();
+            ApiController.InitialiseClient();
 
             Directory.CreateDirectory(@"..\..\..\Data");
             string filePath = @"..\..\..\Data\facts.txt";
@@ -35,16 +35,16 @@ namespace CatFacts
             {
                 try
                 {
-                    var fact = await FactProcessor.LoadFactAsync();
+                    var fact = await ApiController.LoadFactAsync();
 
                     string factText = fact.GetFactString();
 
                     Console.WriteLine(factText);
                     sw.WriteLine(factText);
                 }
-                catch (Exception e)
+                catch (Exception e)   // file or connection exception
                 {
-                    Console.WriteLine("Sorry, something went wrong. " + e.Message);
+                    Console.WriteLine("Exception occured: " + e.Message);
                 }
 
                 Console.WriteLine("Do you want to get another cat fact? y/n");
