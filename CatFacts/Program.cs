@@ -24,7 +24,7 @@ namespace CatFacts
 
             Directory.CreateDirectory(@"..\..\..\Data");
             string filePath = @"..\..\..\Data\facts.txt";
-            StreamWriter sw = null;
+            StreamWriter sw;
 
             if (!File.Exists(filePath))
                 sw = File.CreateText(filePath);
@@ -36,9 +36,16 @@ namespace CatFacts
                 var fact = await FactProcessor.LoadFactAsync();
 
                 string factText = fact.GetFactString();
-
                 Console.WriteLine(factText);
-                sw.WriteLine(factText);  // jesli istnieje -- error handling
+
+                try 
+                { 
+                    sw.WriteLine(factText);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Fact not added to the file. Reason: " + e.Message);
+                }
 
                 Console.WriteLine("Do you want to get another cat fact? y/n");
 
@@ -48,7 +55,7 @@ namespace CatFacts
                     break;
             }
 
-            sw.Dispose(); // close vs dispose --> close allows to reopen the resource later, dispose is final
+            sw.Dispose();
         }
 
     }
